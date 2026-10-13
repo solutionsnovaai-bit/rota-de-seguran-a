@@ -2,11 +2,28 @@ import type { RecognitionContent } from '@/types/content'
 
 export const recognition: RecognitionContent = {
   eyebrow: 'Talvez você se reconheça aqui',
+  title: 'A dor que ninguém vê',
+  titleAccent: 'ninguém vê',
   paragraphs: [
-    'Talvez seja você quem está com medo — noites sem dormir, o ouvido atento ao barulho da porta, se perguntando se é exagero seu (e sabendo, lá no fundo, que não é).',
-    'Ou talvez o medo seja por alguém que você ama. A filha, a amiga, a vizinha. Você vê os sinais e fica com aquela aflição de não saber o que fazer.',
+    {
+      text: 'Tem dia que o único lugar onde você consegue chorar é no banho, com o chuveiro ligado pra abafar o som. Você já aprendeu a “adivinhar” o humor dele pelo jeito que a chave gira na porta.',
+    },
+    {
+      text: 'Mede cada palavra antes de falar. Pondera cada roupa que vai usar. Qual será a reação dele? E, quando tem vontade de rir, ainda pensa duas vezes: será que eu tô dando motivo pra alguma coisa?',
+    },
+    {
+      text: 'E o pior muitas vezes vem de perto: quando você ouve de amigos, ou até da própria família, que é “tudo exagero da sua cabeça”.',
+    },
+    {
+      text: 'Não é. E, lá no fundo, você sempre soube que não era.',
+      pivot: true,
+    },
+    {
+      text: 'Ou talvez quem chora escondido seja você, vendo a sua filha, a sua irmã, a sua amiga se apagar aos poucos. Os sinais ali, na sua frente. E aquele nó de não saber como chegar nela sem empurrá-la mais pra longe.',
+    },
   ],
-  emphasis: 'Para os dois, este guia existe. Porque proteger uma mulher quase nunca é trabalho de uma pessoa só.',
+  emphasis:
+    'Para essas duas dores, eu criei este guia. Porque ninguém deveria descobrir isso sozinha. E eu, mais do que ninguém, sei que proteger uma mulher quase nunca é trabalho de uma pessoa só.',
   card: {
     title: 'Você se reconhece em alguma destas?',
     signs: [

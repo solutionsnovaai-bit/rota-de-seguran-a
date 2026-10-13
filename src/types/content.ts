@@ -13,9 +13,18 @@ export interface HeroContent {
   cta: string
 }
 
+export interface StoryParagraph {
+  text: string
+  /** Frase curta de virada, exibida maior e em itálico. */
+  pivot?: boolean
+}
+
 export interface RecognitionContent {
   eyebrow: string
-  paragraphs: readonly string[]
+  title: string
+  /** Trecho do título destacado em laranja. */
+  titleAccent: string
+  paragraphs: readonly StoryParagraph[]
   emphasis: string
   card: {
     title: string

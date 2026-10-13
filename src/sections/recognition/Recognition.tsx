@@ -3,6 +3,7 @@ import { Reveal } from '@/components/motion/Reveal'
 import { ScrollWords } from '@/components/motion/ScrollWords'
 import { Container } from '@/components/ui/Container'
 import { Eyebrow } from '@/components/ui/Eyebrow'
+import { Heading } from '@/components/ui/Heading'
 import { Section } from '@/components/ui/Section'
 import { recognition } from '@/content/recognition'
 import { sectionIds } from '@/content/site'
@@ -16,13 +17,25 @@ export function Recognition() {
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-6">
             <Eyebrow>{recognition.eyebrow}</Eyebrow>
+            <Reveal>
+              <Heading text={recognition.title} accent={recognition.titleAccent} className="mt-6 text-navy-900" />
+            </Reveal>
 
-            <div className="mt-10 space-y-8 text-[clamp(1.45rem,2.5vw,2.15rem)] font-medium leading-[1.28] tracking-[-0.022em] text-navy-900 sm:mt-12">
-              {recognition.paragraphs.map((paragraph) => (
-                <p key={paragraph}>
-                  <ScrollWords text={paragraph} dim={0.14} />
-                </p>
-              ))}
+            <div className="mt-10 space-y-7 text-[clamp(1.25rem,1.9vw,1.6rem)] font-medium leading-[1.4] tracking-[-0.018em] text-navy-900 sm:mt-12 sm:space-y-8">
+              {recognition.paragraphs.map((paragraph) =>
+                paragraph.pivot ? (
+                  <p
+                    key={paragraph.text}
+                    className="py-2 font-serif text-[clamp(1.9rem,3.4vw,2.8rem)] font-normal italic leading-[1.1] tracking-[-0.01em]"
+                  >
+                    <ScrollWords text={paragraph.text} dim={0.14} />
+                  </p>
+                ) : (
+                  <p key={paragraph.text}>
+                    <ScrollWords text={paragraph.text} dim={0.14} />
+                  </p>
+                ),
+              )}
             </div>
 
             <Reveal className="mt-12">
