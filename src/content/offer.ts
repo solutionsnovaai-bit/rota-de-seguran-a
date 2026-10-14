@@ -21,17 +21,17 @@ export const offer: OfferContent = {
     {
       kind: 'finance',
       title: 'Recomeço com Autonomia',
-      text: 'os primeiros passos da independência financeira: conta própria, reserva e a primeira renda.',
+      text: 'O Guia prático com os primeiros passos da independência financeira: conta própria, reserva e a primeira renda.',
     },
     {
       kind: 'phrases',
       title: 'Frases que Protegem',
-      text: 'como falar com quem você ama e está em perigo: o que dizer, o que evitar, como ajudar sem afastar.',
+      text: 'O código secreto que revela como falar com quem você ama e está em perigo: o que dizer, o que evitar, como ajudar sem afastar.',
     },
     {
       kind: 'map',
       title: 'Mapa da Rede de Apoio',
-      text: 'para onde ligar e onde buscar ajuda, em um só lugar, com espaço pra anotar os contatos da sua cidade.',
+      text: 'O manual na palma da mão que mostra para onde ligar e onde buscar ajuda, em um só lugar, com espaço pra anotar os contatos da sua cidade.',
     },
     {
       kind: 'updates',

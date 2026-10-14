@@ -34,7 +34,6 @@ export interface AuthorContent {
   title: string
   titleAccent: string
   paragraphs: readonly string[]
-  caption: string
 }
 
 export interface MethodContent {

@@ -68,7 +68,7 @@ export function Author() {
             <Heading text={author.title} accent={author.titleAccent} className="mt-6 text-paper" />
           </Reveal>
 
-          <figure className="relative mt-10 pl-6 sm:pl-8">
+          <div className="relative mt-10 pl-6 sm:pl-8">
             <motion.span
               aria-hidden
               className="absolute bottom-2 left-0 top-2 w-px origin-top bg-gradient-to-b from-flame via-flame/60 to-transparent"
@@ -80,16 +80,13 @@ export function Author() {
             <div className="space-y-6">
               {author.paragraphs.map((paragraph, index) => (
                 <Reveal key={paragraph} delay={0.08 * index}>
-                  <p className="text-pretty font-serif text-[1.55rem] leading-[1.32] text-paper/90 sm:text-[1.85rem]">
+                  <p className="text-pretty font-serif text-[1.4rem] leading-[1.34] text-paper/90 sm:text-[1.65rem]">
                     {paragraph}
                   </p>
                 </Reveal>
               ))}
             </div>
-            <Reveal delay={0.2}>
-              <figcaption className="mt-8 text-sm leading-relaxed text-paper/50 sm:text-[0.95rem]">{author.caption}</figcaption>
-            </Reveal>
-          </figure>
+          </div>
         </div>
       </Container>
     </Section>
