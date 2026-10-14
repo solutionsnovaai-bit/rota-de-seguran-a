@@ -65,21 +65,28 @@ export interface PracticeContent {
   items: readonly InlineItem[]
 }
 
-export interface BonusContent {
-  badge: string
-  title: string
-  titleLines: readonly [string, string]
-  subtitle: string
-  support: string
-  contentsEyebrow: string
-  contentsTitle: string
-  items: readonly InlineItem[]
+export interface BonusItem extends InlineItem {
+  kind: 'guide' | 'finance' | 'phrases' | 'map' | 'updates'
+  /** Valor cheio riscado ("R$ 47,00"). */
+  from: string
+  /** Lista "Nesse guia você aprenderá a:" (só no bônus principal). */
+  learn?: {
+    intro: string
+    items: readonly InlineItem[]
+  }
 }
 
-export interface OfferExtra extends InlineItem {
-  /** Símbolo que faz parte do texto (ex.: ⭐, ★), exibido antes do título. */
-  glyph?: string
-  kind: 'guide' | 'finance' | 'phrases' | 'map' | 'updates'
+export interface BonusContent {
+  title: string
+  intro: string
+  /** Separador entre o nome do bônus e a descrição, como veio na copy. */
+  dash: string
+  priceLabels: {
+    from: string
+    to: string
+    free: string
+  }
+  items: readonly BonusItem[]
 }
 
 export interface OfferContent {
@@ -91,8 +98,6 @@ export interface OfferContent {
     title: string
     text: string
   }
-  extrasLabel: string
-  extras: readonly OfferExtra[]
 }
 
 export interface PricingContent {

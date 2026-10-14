@@ -43,8 +43,8 @@ export default function App() {
         <Method />
         <Stories />
         <Practice />
-        <Bonus />
         <Offer />
+        <Bonus />
         <Pricing />
         <Guarantee />
         <Faq />
