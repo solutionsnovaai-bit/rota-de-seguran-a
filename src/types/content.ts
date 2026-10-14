@@ -8,64 +8,81 @@ export interface HeroContent {
   eyebrow: string
   title: string
   titleLines: readonly [string, string]
+  /** Palavra da segunda linha destacada em laranja, como na capa. */
+  titleAccent: string
   subtitle: string
   support: string
   cta: string
-}
-
-export interface StoryParagraph {
-  text: string
-  /** Frase curta de virada, exibida maior e em itálico. */
-  pivot?: boolean
+  /** Linha fina abaixo do botão, separada por pontos. */
+  fineLine: readonly string[]
 }
 
 export interface RecognitionContent {
   eyebrow: string
-  title: string
-  /** Trecho do título destacado em laranja. */
-  titleAccent: string
-  paragraphs: readonly StoryParagraph[]
-  emphasis: string
+  paragraphs: readonly string[]
   card: {
     title: string
     signs: readonly string[]
   }
   closing: string
-}
-
-export interface AuthorStat {
-  /** Parte numérica animada (ex.: 124). Ausente quando o destaque é só texto. */
-  value?: number
-  decimals?: number
-  suffix?: string
-  label: string
+  /** Quantas palavras iniciais do fechamento ficam em laranja. */
+  closingAccentWords: number
 }
 
 export interface AuthorContent {
   eyebrow: string
   title: string
+  titleAccent: string
   paragraphs: readonly string[]
-  stats: readonly AuthorStat[]
+  caption: string
 }
 
-export interface ContentsContent {
+export interface MethodContent {
   eyebrow: string
   title: string
+  titleAccent: string
+  intro: string
   items: readonly InlineItem[]
+}
+
+export interface StoryItem {
+  name: string
+  text: string
+}
+
+export interface StoriesContent {
+  eyebrow: string
+  title: string
+  titleAccent: string
+  intro: string
+  items: readonly StoryItem[]
+  outro: string
+}
+
+export interface PracticeContent {
+  eyebrow: string
+  title: string
+  titleAccent: string
+  items: readonly InlineItem[]
+}
+
+export interface OfferExtra extends InlineItem {
+  /** Símbolo que faz parte do texto (ex.: ⭐, ★), exibido antes do título. */
+  glyph?: string
+  kind: 'guide' | 'finance' | 'phrases' | 'map' | 'updates'
 }
 
 export interface OfferContent {
   eyebrow: string
   title: string
-  intro: string
+  titleAccent: string
   product: {
     icon: string
     title: string
     text: string
   }
   extrasLabel: string
-  extras: readonly InlineItem[]
-  lifetime: InlineItem & { icon: string }
+  extras: readonly OfferExtra[]
 }
 
 export interface PricingContent {
@@ -93,11 +110,13 @@ export interface FaqItem {
 
 export interface FaqContent {
   eyebrow: string
-  title: string
   items: readonly FaqItem[]
 }
 
 export interface ClosingContent {
+  title: string
+  titleAccent: string
+  text: string
   quote: string
   author: string
   cta: string
@@ -106,7 +125,5 @@ export interface ClosingContent {
 export type FooterSegment = { type: 'text'; value: string } | { type: 'tel'; value: string }
 
 export interface FooterContent {
-  brand: string
-  byline: string
   disclaimer: readonly FooterSegment[]
 }

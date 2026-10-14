@@ -1,15 +1,12 @@
 import type { AuthorContent } from '@/types/content'
 
 export const author: AuthorContent = {
-  eyebrow: 'Quem escreveu',
-  title: 'Da dor mais dura, um guia que salva',
+  eyebrow: 'Quem escreve é Sonia Samudio',
+  title: 'Eu aprendi, do jeito mais duro, o quanto vale uma mulher',
+  titleAccent: 'o quanto vale uma mulher',
   paragraphs: [
-    'Eu sou Sonia Samudio, mãe da Eliza. Em 2010, eu perdi a minha filha — e não por falta de amor, mas porque, quando o perigo apareceu, faltou o que fazer. Faltou a informação certa, na hora certa, nas mãos certas.',
-    'Hoje eu transformo essa dor em missão. O Rota de Segurança é, antes de tudo, o guia que eu queria que a minha filha tivesse tido nas mãos.',
+    'Eu sou Sonia Samudio, mãe da Eliza. Eu perdi a minha filha para a violência — e foi perdendo tudo que uma mãe pode perder que eu entendi, de uma vez, o quanto vale a vida de uma mulher.',
+    'Da minha dor, eu fiz missão. Hoje, cada mulher que eu levanto, que eu lembro do próprio valor, é um pedaço de luz que eu acendo no mundo. Este livro é essa mão estendida — a que a minha filha não teve, e que eu quero que chegue até você.',
   ],
-  stats: [
-    { value: 124, decimals: 0, suffix: ' mil', label: 'pessoas acompanham' },
-    { value: 8.5, decimals: 1, suffix: ' mi', label: 'de views em 30 dias' },
-    { label: 'voz reconhecida da causa na imprensa' },
-  ],
+  caption: '(Trecho da carta de abertura, “Querida Eliza”, na voz da Sonia — a alma do livro.)',
 }

@@ -6,18 +6,9 @@ import { sectionIds } from '@/content/site'
 export function Footer() {
   return (
     <footer id={sectionIds.footer} className="relative border-t border-white/[0.06] bg-navy-950 text-paper">
-      <Container className="flex flex-col gap-10 pb-32 pt-16 sm:pt-20 lg:flex-row lg:items-end lg:justify-between lg:pb-16">
-        <p className="flex items-center gap-4">
-          <RouteMark className="size-11" />
-          <span className="text-base">
-            <strong className="font-display font-black uppercase tracking-[0.12em]" style={{ fontStretch: '115%' }}>
-              {footer.brand}
-            </strong>
-            <span className="text-paper/60">{footer.byline}</span>
-          </span>
-        </p>
-
-        <p className="max-w-xl text-sm leading-relaxed text-paper/60 lg:text-right">
+      <Container className="flex flex-col items-center gap-6 pb-32 pt-14 text-center sm:pt-16 lg:pb-14">
+        <RouteMark className="size-9 opacity-80" />
+        <p className="max-w-2xl text-sm leading-relaxed text-paper/55">
           {footer.disclaimer.map((segment, index) =>
             segment.type === 'tel' ? (
               <a

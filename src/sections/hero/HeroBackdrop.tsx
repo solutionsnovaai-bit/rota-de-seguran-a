@@ -49,7 +49,7 @@ export function HeroBackdrop({ ready, progress }: HeroBackdropProps) {
         >
           <VelocityMarquee baseVelocity={-1.2} itemClassName="pr-[0.35em]" skew={false}>
             <span
-              className="display text-outline-thin text-[clamp(6rem,19vw,19rem)] leading-none text-paper/[0.12]"
+              className="display text-outline-thin text-[clamp(6rem,19vw,19rem)] leading-none text-paper/[0.08]"
               style={{ fontStretch: '80%' }}
             >
               {site.author} ✦ {site.name} ✦

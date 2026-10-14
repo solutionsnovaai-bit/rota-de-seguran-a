@@ -10,7 +10,6 @@ import { Section } from '@/components/ui/Section'
 import { author } from '@/content/author'
 import { sectionIds, site } from '@/content/site'
 import { ease } from '@/lib/easings'
-import { AuthorStats } from './AuthorStats'
 
 export function Author() {
   return (
@@ -66,26 +65,31 @@ export function Author() {
         <div className="lg:col-span-7 lg:pl-6">
           <Eyebrow>{author.eyebrow}</Eyebrow>
           <Reveal>
-            <Heading text={author.title} accent="um guia que salva" className="mt-6 text-paper" />
+            <Heading text={author.title} accent={author.titleAccent} className="mt-6 text-paper" />
           </Reveal>
 
-          <div className="mt-9 space-y-6">
-            {author.paragraphs.map((paragraph, index) => (
-              <Reveal key={paragraph} delay={0.08 * index}>
-                <p
-                  className={
-                    index === 0
-                      ? 'text-pretty text-xl leading-relaxed text-paper/90 sm:text-[1.4rem]'
-                      : 'text-pretty text-lg leading-relaxed text-paper/65 sm:text-xl'
-                  }
-                >
-                  {paragraph}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-
-          <AuthorStats />
+          <figure className="relative mt-10 pl-6 sm:pl-8">
+            <motion.span
+              aria-hidden
+              className="absolute bottom-2 left-0 top-2 w-px origin-top bg-gradient-to-b from-flame via-flame/60 to-transparent"
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 1.6, ease: ease.expo, delay: 0.2 }}
+            />
+            <div className="space-y-6">
+              {author.paragraphs.map((paragraph, index) => (
+                <Reveal key={paragraph} delay={0.08 * index}>
+                  <p className="text-pretty font-serif text-[1.55rem] leading-[1.32] text-paper/90 sm:text-[1.85rem]">
+                    {paragraph}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
+            <Reveal delay={0.2}>
+              <figcaption className="mt-8 text-sm leading-relaxed text-paper/50 sm:text-[0.95rem]">{author.caption}</figcaption>
+            </Reveal>
+          </figure>
         </div>
       </Container>
     </Section>

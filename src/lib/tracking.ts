@@ -36,9 +36,9 @@ export function initTracking(): void {
 export function trackCheckoutIntent(placement: string): void {
   if (!PIXEL_ID || typeof window === 'undefined' || !window.fbq) return
   window.fbq('track', 'InitiateCheckout', {
-    content_name: 'Rota de Segurança',
+    content_name: 'Você Sempre Valeu Muito',
     content_category: placement,
-    value: 37,
+    value: 47,
     currency: 'BRL',
   })
 }

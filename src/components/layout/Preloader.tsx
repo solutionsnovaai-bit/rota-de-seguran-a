@@ -8,7 +8,7 @@ import { useLenis } from '@/hooks/useLenis'
 import { ease } from '@/lib/easings'
 import { safeSession } from '@/lib/safe-storage'
 
-const SESSION_KEY = 'rs:intro'
+const SESSION_KEY = 'vsvm:intro'
 const HOLD_MS = 2600
 const ROUTE = 'M24 92 C 120 92 150 34 262 38 S 430 104 576 40'
 
@@ -99,12 +99,15 @@ export function Preloader({ onReveal }: PreloaderProps) {
               <SplitLetters text={site.author} play delay={0.4} stagger={0.028} />
             </p>
 
-            <p className="display mt-4 text-[clamp(2.6rem,9vw,6.5rem)] leading-[0.88]" style={{ fontStretch: '86%' }}>
+            <p
+              className="mt-4 font-display text-[clamp(2.2rem,8.4vw,6rem)] font-semibold uppercase leading-[0.94] tracking-[-0.025em]"
+              style={{ fontStretch: '104%' }}
+            >
               <span className="block">
                 <SplitLetters text={hero.titleLines[0]} play delay={0.75} />
               </span>
-              <span className="block text-flame">
-                <SplitLetters text={hero.titleLines[1]} play delay={0.95} />
+              <span className="block">
+                <SplitLetters text={hero.titleLines[1]} accentWord={hero.titleAccent} play delay={0.95} />
               </span>
             </p>
           </motion.div>

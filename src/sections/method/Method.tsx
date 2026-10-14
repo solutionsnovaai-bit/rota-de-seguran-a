@@ -1,5 +1,5 @@
 import { motion, useScroll, useSpring, useTransform, type MotionValue } from 'framer-motion'
-import { Eye, FolderLock, HeartHandshake, Route, Siren, Sunrise, type LucideIcon } from 'lucide-react'
+import { Gem, HeartHandshake, KeyRound, Megaphone, Route, Sunrise, type LucideIcon } from 'lucide-react'
 import { useLayoutEffect, useRef, useState } from 'react'
 import { Reveal } from '@/components/motion/Reveal'
 import { RoutePath } from '@/components/motion/RoutePath'
@@ -7,29 +7,33 @@ import { Container } from '@/components/ui/Container'
 import { Eyebrow } from '@/components/ui/Eyebrow'
 import { Heading } from '@/components/ui/Heading'
 import { Section } from '@/components/ui/Section'
-import { contents } from '@/content/contents'
+import { method } from '@/content/method'
 import { sectionIds } from '@/content/site'
 import { RouteStop } from './RouteStop'
 
-const ICONS: LucideIcon[] = [Eye, Siren, FolderLock, Route, HeartHandshake, Sunrise]
+/** Valor, voz, independência, rede de apoio e recomeço. */
+const ICONS: LucideIcon[] = [Gem, Megaphone, KeyRound, HeartHandshake, Sunrise]
 
 const MAP_PATH = 'M 40 380 C 40 300 150 330 170 260 S 90 170 170 130 S 330 140 330 60'
 
-export function Contents() {
+export function Method() {
   const listRef = useRef<HTMLOListElement>(null)
   const { scrollYProgress } = useScroll({ target: listRef, offset: ['start 0.75', 'end 0.55'] })
   const progress = useSpring(scrollYProgress, { stiffness: 90, damping: 24, restDelta: 0.001 })
 
   return (
-    <Section id={sectionIds.contents} tone="paper" overlap>
+    <Section id={sectionIds.method} tone="paper" overlap>
       <Container className="grid gap-16 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
-            <Eyebrow>{contents.eyebrow}</Eyebrow>
+            <Eyebrow>{method.eyebrow}</Eyebrow>
             <Reveal>
-              <Heading text={contents.title} accent="proteção real" className="mt-6 text-navy-900" />
+              <Heading text={method.title} accent={method.titleAccent} className="mt-6 text-navy-900" />
             </Reveal>
-            <RouteMap progress={progress} stops={contents.items.length} />
+            <Reveal delay={0.08}>
+              <p className="text-pretty mt-7 max-w-md text-lg leading-relaxed text-navy-900/70 sm:text-xl">{method.intro}</p>
+            </Reveal>
+            <RouteMap progress={progress} stops={method.items.length} />
           </div>
         </div>
 
@@ -40,7 +44,7 @@ export function Contents() {
           </div>
 
           <ol ref={listRef} className="relative space-y-6 sm:space-y-8">
-            {contents.items.map((item, index) => (
+            {method.items.map((item, index) => (
               <RouteStop key={item.title} item={item} icon={ICONS[index] ?? Route} />
             ))}
           </ol>
@@ -68,7 +72,7 @@ function RouteMap({ progress, stops }: { progress: MotionValue<number>; stops: n
   }, [stops])
 
   return (
-    <div aria-hidden className="mt-16 hidden max-w-[22rem] lg:block">
+    <div aria-hidden className="mt-14 hidden max-w-[20rem] lg:block">
       <svg viewBox="0 0 370 420" className="w-full overflow-visible">
         <path ref={measureRef} d={MAP_PATH} fill="none" stroke="none" />
         <RoutePath d={MAP_PATH} stroke="rgba(11,31,66,0.16)" strokeWidth={2} dash="4 10" duration={0.01} />

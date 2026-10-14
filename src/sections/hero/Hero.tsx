@@ -46,14 +46,14 @@ export function Hero({ ready }: { ready: boolean }) {
 
           <h1
             aria-label={hero.title}
-            className="display mt-5 text-[clamp(2.9rem,13.4vw,6.5rem)] leading-[0.84] tracking-[-0.02em] drop-shadow-[0_10px_40px_rgba(4,11,26,0.65)] sm:mt-7 lg:text-[clamp(5rem,8.4vw,9.75rem)]"
-            style={{ fontStretch: '88%' }}
+            className="mt-5 font-display text-[clamp(2.5rem,11.4vw,5.6rem)] font-semibold uppercase leading-[0.94] tracking-[-0.03em] drop-shadow-[0_10px_40px_rgba(4,11,26,0.65)] sm:mt-7 lg:text-[clamp(4rem,6.3vw,7.6rem)]"
+            style={{ fontStretch: '104%' }}
           >
             <span className="block">
               <SplitLetters text={hero.titleLines[0]} play={ready} delay={0.3} />
             </span>{' '}
-            <span className="block text-flame">
-              <SplitLetters text={hero.titleLines[1]} play={ready} delay={0.5} />
+            <span className="block">
+              <SplitLetters text={hero.titleLines[1]} accentWord={hero.titleAccent} play={ready} delay={0.5} />
             </span>
           </h1>
 
@@ -71,6 +71,18 @@ export function Hero({ ready }: { ready: boolean }) {
           <motion.div className="mt-8 sm:mt-10" {...enter(ready, 1.2)}>
             <CtaButton label={hero.cta} placement="hero" size="lg" />
           </motion.div>
+
+          <motion.p
+            className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.8rem] font-medium text-paper/55 sm:mt-6 sm:text-sm"
+            {...enter(ready, 1.32)}
+          >
+            {hero.fineLine.map((item, index) => (
+              <span key={item} className="inline-flex items-center gap-2">
+                {index > 0 ? <span className="text-flame">·</span> : null}
+                <span>{item}</span>
+              </span>
+            ))}
+          </motion.p>
         </motion.div>
 
         <motion.div

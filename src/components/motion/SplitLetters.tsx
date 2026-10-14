@@ -10,6 +10,8 @@ interface SplitLettersProps {
   stagger?: number
   className?: string
   letterClassName?: string
+  /** Palavra exibida em laranja (como "MUITO" na capa). */
+  accentWord?: string
 }
 
 const letter: Variants = {
@@ -21,7 +23,15 @@ const letter: Variants = {
  * Revela o texto letra a letra, cada palavra dentro de uma máscara.
  * A leitura acessível fica no elemento pai (aria-label).
  */
-export function SplitLetters({ text, play, delay = 0, stagger = 0.032, className, letterClassName }: SplitLettersProps) {
+export function SplitLetters({
+  text,
+  play,
+  delay = 0,
+  stagger = 0.032,
+  className,
+  letterClassName,
+  accentWord,
+}: SplitLettersProps) {
   const words = text.split(' ')
 
   return (
@@ -34,7 +44,12 @@ export function SplitLetters({ text, play, delay = 0, stagger = 0.032, className
     >
       {words.map((word, wordIndex) => (
         <Fragment key={`${word}-${wordIndex}`}>
-          <span className="-mb-[0.18em] -mt-[0.08em] inline-block overflow-hidden whitespace-nowrap pb-[0.18em] pt-[0.08em] align-bottom">
+          <span
+            className={cn(
+              '-mb-[0.18em] -mt-[0.08em] inline-block overflow-hidden whitespace-nowrap pb-[0.18em] pt-[0.08em] align-bottom',
+              accentWord && word === accentWord && 'text-flame',
+            )}
+          >
             {Array.from(word).map((char, charIndex) => (
               <motion.span
                 key={`${char}-${charIndex}`}

@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Rota de Segurança · por Sonia Samudio",
+  "description": "Você Sempre Valeu Muito · por Sonia Samudio",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

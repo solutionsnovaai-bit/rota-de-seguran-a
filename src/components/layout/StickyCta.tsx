@@ -35,7 +35,8 @@ export function StickyCta() {
   }, [])
 
   const show = pastHero && !blocked
-  const struck = pricing.from.replace(/^de /, '')
+  const prefix = pricing.from.slice(0, pricing.from.indexOf('R$'))
+  const struck = pricing.from.slice(prefix.length)
 
   return (
     <AnimatePresence>
@@ -51,7 +52,8 @@ export function StickyCta() {
           <div className="flex items-center gap-3 rounded-[1.6rem] border border-white/10 bg-navy-950/85 p-2 pl-4 shadow-card backdrop-blur-xl">
             <div className="shrink-0 leading-none text-paper">
               <span className="block text-[0.7rem] text-paper/55">
-                de <s className="decoration-flame decoration-2">{struck}</s>
+                {prefix}
+                <s className="decoration-flame decoration-2">{struck}</s>
               </span>
               <span className="mt-1 block font-display text-xl font-black">{pricing.price}</span>
             </div>

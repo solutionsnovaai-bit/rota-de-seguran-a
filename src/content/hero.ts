@@ -1,11 +1,13 @@
 import type { HeroContent } from '@/types/content'
 
 export const hero: HeroContent = {
-  eyebrow: 'Guia prático · por Sonia Samudio',
-  title: 'Rota de Segurança',
-  titleLines: ['Rota de', 'Segurança'],
-  subtitle: 'O guia prático para toda mulher em risco — e para quem não quer ficar de braços cruzados.',
+  eyebrow: 'E-book por Sonia Samudio',
+  title: 'VOCÊ SEMPRE VALEU MUITO',
+  titleLines: ['VOCÊ SEMPRE', 'VALEU MUITO'],
+  titleAccent: 'MUITO',
+  subtitle: 'Os 5 passos para reconstruir o seu valor e voltar a ser dona da sua vida.',
   support:
-    'Do primeiro sinal à medida protetiva e ao plano de segurança: o passo a passo que falta na hora que mais importa.',
-  cta: 'Quero meu guia agora',
+    'Para a mulher que foi ensinada, aos poucos, a valer menos do que vale — e que está pronta pra se reencontrar.',
+  cta: 'Quero começar agora',
+  fineLine: ['E-book em PDF', '5 passos práticos', 'Leia no celular, tablet ou computador'],
 }

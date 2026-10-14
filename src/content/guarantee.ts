@@ -5,5 +5,5 @@ export const guarantee: GuaranteeContent = {
   sealValue: 7,
   sealUnit: 'dias',
   title: 'Garantia incondicional de 7 dias',
-  text: 'Se o guia não for o que você precisava, é só pedir: a gente devolve cada centavo, sem perguntas. O risco é todo nosso.',
+  text: 'Conheça o conteúdo sem risco. Se não for o que você precisava, é só pedir dentro de 7 dias: devolvemos 100% do valor, sem perguntas.',
 }

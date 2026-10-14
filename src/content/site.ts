@@ -1,7 +1,7 @@
 export const site = {
-  name: 'Rota de Segurança',
+  name: 'Você Sempre Valeu Muito',
   author: 'Sonia Samudio',
-  checkoutUrl: 'https://pay.kiwify.com.br/RV2oz7J',
+  checkoutUrl: 'https://pay.kiwify.com.br/TubxaU6',
   locale: 'pt-BR',
 } as const
 
@@ -10,7 +10,9 @@ export const sectionIds = {
   hero: 'inicio',
   recognition: 'reconhecimento',
   author: 'autora',
-  contents: 'conteudo',
+  method: 'metodo',
+  stories: 'historias',
+  practice: 'pratica',
   offer: 'oferta',
   pricing: 'preco',
   guarantee: 'garantia',

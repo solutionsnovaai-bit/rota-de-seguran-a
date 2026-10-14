@@ -1,13 +1,21 @@
 {
-  "name": "Rota de Segurança",
-  "short_name": "Rota de Segurança",
+  "name": "Você Sempre Valeu Muito",
+  "short_name": "Valeu Muito",
   "lang": "pt-BR",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0B1F42",
   "theme_color": "#0B1F42",
   "icons": [
-    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
-    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
   ]
 }

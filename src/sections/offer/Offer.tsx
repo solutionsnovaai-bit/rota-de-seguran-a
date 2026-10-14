@@ -1,4 +1,5 @@
-import { MapPinned, MessageCircleHeart, RefreshCw, Wallet, type LucideIcon } from 'lucide-react'
+import { BookHeart, MapPinned, MessageCircleHeart, RefreshCw, Wallet, type LucideIcon } from 'lucide-react'
+import coverRota from '@/assets/cover-rota.webp'
 import kit from '@/assets/kit.webp'
 import { Parallax } from '@/components/motion/Parallax'
 import { Reveal } from '@/components/motion/Reveal'
@@ -10,9 +11,16 @@ import { Heading } from '@/components/ui/Heading'
 import { Section } from '@/components/ui/Section'
 import { offer } from '@/content/offer'
 import { sectionIds, site } from '@/content/site'
+import type { OfferExtra } from '@/types/content'
 import { BonusItem } from './BonusItem'
 
-const EXTRA_ICONS: LucideIcon[] = [Wallet, MessageCircleHeart, MapPinned]
+const ICONS: Record<OfferExtra['kind'], LucideIcon> = {
+  guide: BookHeart,
+  finance: Wallet,
+  phrases: MessageCircleHeart,
+  map: MapPinned,
+  updates: RefreshCw,
+}
 
 export function Offer() {
   return (
@@ -26,26 +34,23 @@ export function Offer() {
         <div className="mx-auto max-w-3xl text-center">
           <Eyebrow className="justify-center">{offer.eyebrow}</Eyebrow>
           <Reveal>
-            <Heading text={offer.title} accent="Kit de Proteção" className="mt-6 text-paper" />
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="text-pretty mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-paper/75 sm:text-xl">{offer.intro}</p>
+            <Heading text={offer.title} accent={offer.titleAccent} className="mt-6 text-paper" />
           </Reveal>
         </div>
 
-        <div className="mt-16 grid items-center gap-14 lg:mt-24 lg:grid-cols-12 lg:gap-12">
-          <div className="relative lg:col-span-5">
+        <div className="mt-16 grid items-start gap-14 lg:mt-24 lg:grid-cols-12 lg:gap-12">
+          <div className="relative lg:sticky lg:top-28 lg:col-span-5">
             <div
               aria-hidden
               className="absolute left-1/2 top-1/2 size-[110%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(250,61,12,0.32),transparent_62%)]"
             />
-            <Parallax distance={40}>
+            <Parallax distance={30}>
               <TiltStage max={7} className="mx-auto w-[min(82vw,26rem)] lg:w-full lg:max-w-[30rem]">
                 <img
                   src={kit}
                   alt={`${site.name} — ${site.author}`}
-                  width={833}
-                  height={1193}
+                  width={827}
+                  height={1189}
                   loading="lazy"
                   decoding="async"
                   className="relative w-full drop-shadow-[0_50px_60px_rgba(4,11,26,0.7)]"
@@ -66,14 +71,22 @@ export function Offer() {
             </Reveal>
 
             <Reveal delay={0.05}>
-              <p className="mt-10 font-serif text-[1.75rem] italic leading-tight text-paper/85 sm:text-[2rem]">{offer.extrasLabel}</p>
+              <p className="text-pretty mt-10 font-serif text-[1.65rem] italic leading-tight text-paper/85 sm:text-[1.95rem]">
+                {offer.extrasLabel}
+              </p>
             </Reveal>
 
-            <StaggerGroup as="ul" stagger={0.1} amount={0.15} className="mt-6 grid gap-4 sm:grid-cols-2">
-              {offer.extras.map((extra, index) => (
-                <BonusItem key={extra.title} item={extra} icon={EXTRA_ICONS[index] ?? Wallet} />
+            <StaggerGroup as="ul" stagger={0.1} amount={0.1} className="mt-6 grid gap-4 sm:grid-cols-2">
+              {offer.extras.map((extra) => (
+                <BonusItem
+                  key={extra.title}
+                  item={extra}
+                  icon={ICONS[extra.kind]}
+                  highlight={extra.kind === 'guide' || extra.kind === 'updates'}
+                  image={extra.kind === 'guide' ? { src: coverRota, alt: extra.title } : undefined}
+                  className={extra.kind === 'guide' ? 'sm:col-span-2' : undefined}
+                />
               ))}
-              <BonusItem item={offer.lifetime} icon={RefreshCw} glyph={offer.lifetime.icon} highlight />
             </StaggerGroup>
           </div>
         </div>

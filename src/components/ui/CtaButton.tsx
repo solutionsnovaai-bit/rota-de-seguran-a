@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
+import { useMemo } from 'react'
 import { Magnetic } from '@/components/motion/Magnetic'
-import { useCheckoutHref } from '@/hooks/useCheckoutHref'
+import { buildCheckoutUrl } from '@/lib/checkout'
 import { cn } from '@/lib/cn'
 import { trackCheckoutIntent } from '@/lib/tracking'
 
@@ -47,7 +48,8 @@ export function CtaButton({
   magnetic = true,
   className,
 }: CtaButtonProps) {
-  const href = useCheckoutHref()
+  // Link do checkout com os parâmetros de campanha da visita atual.
+  const href = useMemo(() => buildCheckoutUrl(), [])
 
   const button = (
     <a

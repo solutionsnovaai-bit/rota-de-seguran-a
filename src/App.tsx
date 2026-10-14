@@ -9,14 +9,16 @@ import { initTracking } from '@/lib/tracking'
 import { AppProviders } from '@/providers/AppProviders'
 import { Author } from '@/sections/author/Author'
 import { Closing } from '@/sections/closing/Closing'
-import { Contents } from '@/sections/contents/Contents'
 import { Faq } from '@/sections/faq/Faq'
 import { Guarantee } from '@/sections/guarantee/Guarantee'
 import { Hero } from '@/sections/hero/Hero'
+import { Method } from '@/sections/method/Method'
 import { NameBand } from '@/sections/NameBand'
 import { Offer } from '@/sections/offer/Offer'
+import { Practice } from '@/sections/practice/Practice'
 import { Pricing } from '@/sections/pricing/Pricing'
 import { Recognition } from '@/sections/recognition/Recognition'
+import { Stories } from '@/sections/stories/Stories'
 
 export default function App() {
   const [ready, setReady] = useState(false)
@@ -37,7 +39,9 @@ export default function App() {
         <NameBand />
         <Recognition />
         <Author />
-        <Contents />
+        <Method />
+        <Stories />
+        <Practice />
         <Offer />
         <Pricing />
         <Guarantee />

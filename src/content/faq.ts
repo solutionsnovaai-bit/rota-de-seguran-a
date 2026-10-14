@@ -1,28 +1,25 @@
 import type { FaqContent } from '@/types/content'
 
 export const faq: FaqContent = {
-  eyebrow: 'Perguntas que você pode ter',
-  title: 'Antes de decidir',
+  eyebrow: 'Antes de decidir',
   items: [
     {
-      question: 'Não é o meu caso — é de alguém que eu amo. Serve pra mim?',
+      question: 'É pra mim, mesmo que eu não tenha vivido violência?',
       answer:
-        'Serve, e foi feito pensando em você também. O guia tem orientações específicas para mães, amigas e parentes que querem ajudar sem colocar a pessoa em mais risco.',
+        'Sim. O livro é pra toda mulher que foi ensinada a valer menos do que vale — no relacionamento, na família, no trabalho, em se anular pra agradar. A proteção vem como material extra, pra quem precisar.',
     },
     {
-      question: 'É seguro comprar? Alguém vai saber?',
+      question: 'Quanto tempo leva pra ler?',
       answer:
-        'A compra é discreta e o conteúdo chega no seu e-mail. O próprio guia ensina, logo na primeira página, a acessar tudo com segurança.',
+        'Você lê no seu ritmo. São 5 passos curtos, feitos pra caber na vida real — e pra voltar neles sempre que precisar.',
     },
     {
       question: 'Como eu recebo?',
-      answer:
-        'Tudo digital, por e-mail, logo após a confirmação do pagamento. Você lê no celular ou no computador, na hora que quiser.',
+      answer: 'Tudo digital, por e-mail, logo após a confirmação do pagamento. Lê no celular, tablet ou computador.',
     },
     {
-      question: 'Serve pra qualquer cidade do Brasil?',
-      answer:
-        'Sim. As orientações valem para todo o país, e o Mapa da Rede de Apoio ajuda você a encontrar o atendimento mais perto de você.',
+      question: 'E se eu não gostar?',
+      answer: 'Você tem 7 dias de garantia incondicional. O risco é todo nosso.',
     },
   ],
 }

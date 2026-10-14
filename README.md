@@ -1,6 +1,6 @@
-# Rota de Segurança
+# Você Sempre Valeu Muito
 
-Página de vendas do guia **Rota de Segurança**, de Sonia Samudio.
+Página de vendas do e-book **Você Sempre Valeu Muito**, de Sonia Samudio.
 
 ## Stack
 
