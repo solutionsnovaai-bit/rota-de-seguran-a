@@ -1,6 +1,133 @@
-@import './base.css';
-@import './utilities.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Base */
+@layer base {
+  :root {
+    --navy-950: 4 11 26;
+    --navy-900: 11 31 66;
+    --flame: 250 61 12;
+    --paper: 243 246 252;
+    --header-h: 72px;
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: var(--header-h);
+  }
+
+  body {
+    @apply bg-navy-950 font-sans text-paper;
+    font-feature-settings: 'ss01', 'cv11';
+    overflow-x: clip;
+  }
+
+  body.is-locked {
+    overflow: hidden;
+  }
+
+  ::selection {
+    background: rgb(var(--flame));
+    color: rgb(var(--paper));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--flame));
+    outline-offset: 4px;
+    border-radius: 6px;
+  }
+
+  img {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  strong {
+    @apply font-semibold;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Componentes e utilitários */
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-3 font-display text-[0.7rem] font-bold uppercase tracking-eyebrow sm:text-xs;
+    font-stretch: 112%;
+  }
+
+  .display {
+    @apply font-display font-black uppercase;
+    font-stretch: 100%;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-current opacity-15;
+  }
+}
+
+@layer utilities {
+  /* Contorno usa a cor do texto (text-*); só o preenchimento fica vazio. */
+  .text-outline {
+    -webkit-text-stroke: 1.5px currentColor;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-outline-thin {
+    -webkit-text-stroke: 1px currentColor;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .safe-bottom {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}

@@ -1,7 +1,13 @@
 import { useReducedMotion } from 'framer-motion'
 import Lenis from 'lenis'
-import { useEffect, useState, type ReactNode } from 'react'
-import { LenisContext } from '@/hooks/useLenis'
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
+
+const LenisContext = createContext<Lenis | null>(null)
+
+/** Instância do scroll suave (nula quando o usuário prefere menos movimento). */
+export function useLenis(): Lenis | null {
+  return useContext(LenisContext)
+}
 
 /** Scroll suave com inércia (Lenis). Desligado para quem prefere menos movimento. */
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {

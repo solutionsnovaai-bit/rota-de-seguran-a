@@ -7,18 +7,21 @@ import { cn } from '@/lib/cn'
 interface HeroPortraitProps {
   ready: boolean
   progress: MotionValue<number>
+  /** Deslocamento horizontal vindo do cursor (parallax leve). */
+  pointerX?: MotionValue<number>
   className?: string
 }
 
 /** Retrato da autora recortado, subindo de baixo e afastando em parallax no scroll. */
-export function HeroPortrait({ ready, progress, className }: HeroPortraitProps) {
+export function HeroPortrait({ ready, progress, pointerX, className }: HeroPortraitProps) {
   const y = useTransform(progress, [0, 1], [0, 180])
   const scale = useTransform(progress, [0, 1], [1, 1.08])
   const brightness = useTransform(progress, [0, 0.9], [1, 0.55])
   const filter = useTransform(brightness, (value) => `brightness(${value})`)
+  const x = useTransform(() => (pointerX ? pointerX.get() * -14 : 0))
 
   return (
-    <motion.div className={cn('pointer-events-none origin-bottom', className)} style={{ y, scale, filter }}>
+    <motion.div className={cn('pointer-events-none origin-bottom', className)} style={{ x, y, scale, filter }}>
       <MaskReveal play={ready} delay={0.05} className="h-full w-full">
         <img
           src={sonia}

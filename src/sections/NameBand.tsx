@@ -1,10 +1,10 @@
 import { VelocityMarquee } from '@/components/motion/VelocityMarquee'
 import { site } from '@/content/site'
 
-/** Faixa laranja com o nome do guia e da autora, acelerando com o scroll. */
+/** Faixa laranja dupla: nome do e-book e da autora correndo em sentidos opostos, acelerando com o scroll. */
 export function NameBand() {
   return (
-    <div className="relative z-0 bg-flame pb-14 pt-6 text-navy-950 sm:pb-20 sm:pt-8">
+    <div className="relative z-0 overflow-hidden bg-flame pb-14 pt-6 text-navy-950 sm:pb-20 sm:pt-8">
       <VelocityMarquee baseVelocity={-2.4}>
         <span
           className="display flex items-center gap-[0.5em] pr-[0.5em] text-[clamp(2.4rem,7vw,5.5rem)] leading-none"
@@ -13,6 +13,17 @@ export function NameBand() {
           <span>{site.name}</span>
           <Star />
           <span className="text-outline text-navy-950">{site.author}</span>
+          <Star />
+        </span>
+      </VelocityMarquee>
+      <VelocityMarquee baseVelocity={1.6} className="mt-2 opacity-90 sm:mt-3">
+        <span
+          className="display flex items-center gap-[0.6em] pr-[0.6em] text-[clamp(1.2rem,3vw,2.3rem)] leading-none text-paper"
+          style={{ fontStretch: '110%' }}
+        >
+          <span>{site.author}</span>
+          <Star />
+          <span className="text-outline text-paper">{site.name}</span>
           <Star />
         </span>
       </VelocityMarquee>

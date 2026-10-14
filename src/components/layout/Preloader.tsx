@@ -4,7 +4,7 @@ import { SplitLetters } from '@/components/motion/SplitLetters'
 import { RoutePath } from '@/components/motion/RoutePath'
 import { hero } from '@/content/hero'
 import { site } from '@/content/site'
-import { useLenis } from '@/hooks/useLenis'
+import { useLenis } from '@/providers/SmoothScrollProvider'
 import { ease } from '@/lib/easings'
 import { safeSession } from '@/lib/safe-storage'
 

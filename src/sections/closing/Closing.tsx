@@ -37,7 +37,7 @@ export function Closing() {
           className="mx-auto w-fit"
           initial={{ opacity: 0, scale: 0.6, rotate: -20 }}
           whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-          viewport={{ once: true, amount: 1 }}
+          viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 1.2, ease: ease.expo }}
         >
           <RouteMark className="size-14 sm:size-16" />

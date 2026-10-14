@@ -1,5 +1,13 @@
-import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
-import { useLayoutEffect, useRef, useState } from 'react'
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from 'framer-motion'
+import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { Reveal } from '@/components/motion/Reveal'
 import { ScrollWords } from '@/components/motion/ScrollWords'
 import { StaggerGroup, StaggerItem } from '@/components/motion/Stagger'
@@ -91,7 +99,9 @@ function PinnedTrack() {
         <motion.div ref={trackRef} className="flex w-max items-stretch gap-6 pl-12 pr-[12vw] xl:pl-[max(3rem,calc((100vw-1320px)/2+3rem))]" style={{ x }}>
           <Intro className="flex w-[30rem] shrink-0 flex-col justify-center pr-10 xl:w-[34rem]" />
           {stories.items.map((item, index) => (
-            <StoryCard key={item.name} item={item} index={index} className="h-[min(66vh,34rem)] w-[min(27rem,30vw)] shrink-0" />
+            <WaveItem key={item.name} index={index} progress={smooth}>
+              <StoryCard item={item} index={index} className="h-[min(66vh,34rem)] w-[min(27rem,30vw)]" />
+            </WaveItem>
           ))}
         </motion.div>
 
@@ -100,6 +110,24 @@ function PinnedTrack() {
         </div>
       </div>
     </div>
+  )
+}
+
+interface WaveItemProps {
+  children: ReactNode
+  index: number
+  progress: MotionValue<number>
+}
+
+/** Cartões sobem e descem em onda leve enquanto a trilha corre. */
+function WaveItem({ children, index, progress }: WaveItemProps) {
+  const range = index % 2 === 0 ? [28, -28] : [-28, 28]
+  const y = useTransform(progress, [0, 1], range)
+  const rotate = useTransform(progress, [0, 1], index % 2 === 0 ? [1.2, -1.2] : [-1.2, 1.2])
+  return (
+    <motion.div className="shrink-0" style={{ y, rotate }}>
+      {children}
+    </motion.div>
   )
 }
 

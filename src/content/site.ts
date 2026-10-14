@@ -13,6 +13,7 @@ export const sectionIds = {
   method: 'metodo',
   stories: 'historias',
   practice: 'pratica',
+  bonus: 'bonus',
   offer: 'oferta',
   pricing: 'preco',
   guarantee: 'garantia',

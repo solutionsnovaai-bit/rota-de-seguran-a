@@ -66,6 +66,17 @@ export interface PracticeContent {
   items: readonly InlineItem[]
 }
 
+export interface BonusContent {
+  badge: string
+  title: string
+  titleLines: readonly [string, string]
+  subtitle: string
+  support: string
+  contentsEyebrow: string
+  contentsTitle: string
+  items: readonly InlineItem[]
+}
+
 export interface OfferExtra extends InlineItem {
   /** Símbolo que faz parte do texto (ex.: ⭐, ★), exibido antes do título. */
   glyph?: string

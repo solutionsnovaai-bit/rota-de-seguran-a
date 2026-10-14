@@ -8,6 +8,7 @@ import { ScrollProgress } from '@/components/ui/ScrollProgress'
 import { initTracking } from '@/lib/tracking'
 import { AppProviders } from '@/providers/AppProviders'
 import { Author } from '@/sections/author/Author'
+import { Bonus } from '@/sections/bonus/Bonus'
 import { Closing } from '@/sections/closing/Closing'
 import { Faq } from '@/sections/faq/Faq'
 import { Guarantee } from '@/sections/guarantee/Guarantee'
@@ -42,6 +43,7 @@ export default function App() {
         <Method />
         <Stories />
         <Practice />
+        <Bonus />
         <Offer />
         <Pricing />
         <Guarantee />

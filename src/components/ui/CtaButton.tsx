@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { useMemo } from 'react'
-import { Magnetic } from '@/components/motion/Magnetic'
+import { Magnetic } from '@/components/motion/Pointer'
 import { buildCheckoutUrl } from '@/lib/checkout'
 import { cn } from '@/lib/cn'
 import { trackCheckoutIntent } from '@/lib/tracking'

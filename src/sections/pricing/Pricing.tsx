@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Lock } from 'lucide-react'
 import cover from '@/assets/cover.webp'
 import { Book3D } from '@/components/motion/Book3D'
+import { Spotlight } from '@/components/motion/Pointer'
 import { Reveal } from '@/components/motion/Reveal'
 import { RollingPrice } from '@/components/motion/RollingPrice'
 import { Container } from '@/components/ui/Container'
@@ -32,7 +33,8 @@ export function Pricing() {
         </div>
 
         <Reveal>
-          <div className="relative mx-auto max-w-xl rounded-[2.25rem] border border-white/10 bg-navy-900/70 p-6 shadow-card backdrop-blur-xl xs:p-8 sm:p-12">
+          <Spotlight className="mx-auto max-w-xl rounded-[2.25rem]" color="rgba(250,61,12,0.14)" size={520}>
+          <div className="relative rounded-[2.25rem] border border-white/10 bg-navy-900/70 p-6 shadow-card backdrop-blur-xl xs:p-8 sm:p-12">
             <div aria-hidden className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-flame to-transparent" />
 
             <p className="text-lg text-paper/55 sm:text-xl">
@@ -44,7 +46,7 @@ export function Pricing() {
                   className="absolute left-[-4%] top-1/2 h-[2px] w-[108%] origin-left -rotate-6 bg-flame"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true, amount: 1 }}
+                  viewport={{ once: true, amount: 0.6 }}
                   transition={{ duration: 0.7, ease: ease.expo, delay: 0.3 }}
                 />
               </span>
@@ -72,6 +74,7 @@ export function Pricing() {
               <span>{pricing.secure}</span>
             </p>
           </div>
+          </Spotlight>
         </Reveal>
       </Container>
     </Section>

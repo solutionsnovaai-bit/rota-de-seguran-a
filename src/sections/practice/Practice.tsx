@@ -1,4 +1,5 @@
 import { Footprints, Quote, type LucideIcon } from 'lucide-react'
+import { Spotlight } from '@/components/motion/Pointer'
 import { Reveal } from '@/components/motion/Reveal'
 import { StaggerGroup, StaggerItem } from '@/components/motion/Stagger'
 import { TiltStage } from '@/components/motion/TiltStage'
@@ -30,6 +31,7 @@ export function Practice() {
             return (
               <StaggerItem key={item.title}>
                 <TiltStage max={5} className="h-full">
+                  <Spotlight className="h-full rounded-[2.25rem]" color={dark ? 'rgba(250,61,12,0.2)' : 'rgba(250,61,12,0.1)'}>
                   <article
                     className={cn(
                       'relative isolate flex h-full min-h-[22rem] flex-col justify-between overflow-hidden rounded-[2.25rem] p-8 shadow-soft sm:min-h-[26rem] sm:p-12',
@@ -72,6 +74,7 @@ export function Practice() {
                       <span className="text-flame">—</span> {item.text}
                     </p>
                   </article>
+                  </Spotlight>
                 </TiltStage>
               </StaggerItem>
             )
