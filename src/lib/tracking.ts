@@ -1,14 +1,18 @@
 /**
- * Pixel da Meta opcional. Só carrega quando VITE_META_PIXEL_ID está definido;
- * sem ele, nenhum script externo entra na página.
+ * Pixel da Meta. O código oficial do pixel fica no <head> do index.html
+ * (init + PageView). Aqui só entram os eventos da página — e, como reserva,
+ * a carga do pixel por VITE_META_PIXEL_ID caso o código do <head> seja removido.
  */
 const PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID?.trim()
 
 let initialized = false
 
 export function initTracking(): void {
-  if (!PIXEL_ID || initialized || typeof window === 'undefined') return
+  if (initialized || typeof window === 'undefined') return
   initialized = true
+
+  // Pixel já carregado pelo <head>: não inicia de novo nem repete o PageView.
+  if (window.fbq || !PIXEL_ID) return
 
   const queue: unknown[] = []
   const fbq = ((...args: unknown[]) => {
@@ -34,7 +38,7 @@ export function initTracking(): void {
 }
 
 export function trackCheckoutIntent(placement: string): void {
-  if (!PIXEL_ID || typeof window === 'undefined' || !window.fbq) return
+  if (typeof window === 'undefined' || !window.fbq) return
   window.fbq('track', 'InitiateCheckout', {
     content_name: 'Você Sempre Valeu Muito',
     content_category: placement,
